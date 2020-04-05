@@ -1,0 +1,31 @@
+{
+  "name": "@rune/nuspec",
+  "version": "0.2.0",
+  "description": "A nuget specification file parser",
+  "main": "index.js",
+  "repository": "https://github.com/ancientproject/nuspec.js.git",
+  "author": "Yuuki Wesp <ls-micro@ya.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@types/webpack": "^4.41.10",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "declaration-bundler-webpack-plugin": "^1.0.3",
+    "source-map-support": "^0.5.16",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev:watch": "webpack --progress --colors --watch",
+    "generate-class": "xscgen ./nuspec.xsd"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  }
+}
