@@ -1,1 +1,1 @@
-nuspec.js
+# @rune/nuspec.js
