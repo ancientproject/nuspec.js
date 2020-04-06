@@ -1,6 +1,6 @@
 {
   "name": "@rune-temp/nuspec",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A nuget specification file parser",
   "main": "./dist/index.js",
   "repository": "https://github.com/ancientproject/nuspec.js.git",
@@ -26,7 +26,8 @@
   "scripts": {
     "build": "webpack",
     "dev:watch": "webpack --progress --colors --watch",
-    "generate-class": "xscgen ./nuspec.xsd"
+    "generate-class": "xscgen ./nuspec.xsd",
+    "deploy": "yarn publish --access public"
   },
   "dependencies": {
     "xml2js": "^0.4.23"
