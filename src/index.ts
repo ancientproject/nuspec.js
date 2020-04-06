@@ -1,6 +1,6 @@
 import { parseStringPromise } from "xml2js";
 import { NuSpec, NuSpecFile } from "./nuspec";
-export default async (value): Promise<NuSpec> => {
+export async function parse(value): Promise<NuSpec> {
     if(!value)
         throw new Error("Argument error. [value is not defined]");
     if(typeof value != "string")
@@ -12,3 +12,4 @@ export default async (value): Promise<NuSpec> => {
     let nuspec: NuSpec = { ...pkg };
     return nuspec;
 }
+export { NuSpec, NuSpecFile };

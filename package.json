@@ -1,6 +1,6 @@
 {
   "name": "@rune-temp/nuspec",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A nuget specification file parser",
   "main": "./dist/index.js",
   "repository": "https://github.com/ancientproject/nuspec.js.git",
