@@ -1,34 +1,32 @@
 const path = require('path');
-const pkg = require('package.json');
-
-let libraryName = pkg.name;
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        [libraryName]: path.resolve('src/index.ts'),
+        "index": path.resolve('src/index.ts')
     },
     devtool: 'source-map',
     mode: 'development',
     output: {
-        path: path.resolve('lib'),
-        filename: "[name].js",
-        library: libraryName,
-        libraryTarget: 'umd',
-        umdNamedDefine: true,
-        globalObject: '(typeof global!=="undefined"?global:window)'
+        path: path.resolve('dist'),
+        libraryTarget: 'commonjs',
+        filename: 'index.js'
     },
-    rules: [{
-        test: /(\.ts)$/,
-        loaders: ['babel-loader', 'ts-loader'],
-        exclude: /(node_modules|bower_components)/
+    module:{
+        rules: [
+            {
+                test: /(\.ts)$/,
+                loaders: ['babel-loader', 'ts-loader'],
+                exclude: /(node_modules|bower_components)/
+            },
+            {
+                test: /(\.js)$/,
+                loader: 'babel-loader',
+                exclude: /(node_modules|bower_components)/
+            }
+        ],
     },
-    {
-        test: /(\.js)$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/
-    }
-    ],
     resolve: {
         modules: [
             path.resolve('node_modules'),
@@ -36,31 +34,13 @@ module.exports = {
         ],
         extensions: ['.json', '.js', '.ts']
     },
-    optimization: {
-        minimize: false,
-        splitChunks: {
-            chunks: 'all',
-            minChunks: 1,
-            cacheGroups: { 
-                node_modules: {
-                    test: /node_modules/,
-                    chunks: "initial",
-                    name: "node_modules",
-                    priority: 10,
-                    enforce: true,
-                    minChunks: 1,
-                    minSize: 0
-                }
+    plugins:[
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin([
+            {
+              from: './package.json',
+              to: '../dist/package.json',
             },
-        },
-        occurrenceOrder: true,
-        namedModules: true,
-        namedChunks: true,
-
-        removeAvailableModules: true,
-        mergeDuplicateChunks: true,
-        providedExports: true,
-        usedExports: true,
-        concatenateModules: true,
-    },
+        ])
+    ]
 }
