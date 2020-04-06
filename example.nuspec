@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata minClientVersion="1.0.0">
+        <id>test.id</id>
+        <version>2.0.0-beta.1</version>
+        <authors>Pick Wood</authors>
+        <owners>Kukareku</owners>
+        <description>A lightweight big fruit.</description>
+        <releaseNotes>
+            - Support potato
+        </releaseNotes>
+        <projectUrl>http://magic.com/</projectUrl>
+        <iconUrl>http://pbs.twimg.com/profile_images/482670411402858496/Xrtdc94q_normal.png</iconUrl>
+        <license>MIT</license>
+        <tags>cat dog potato</tags>
+  </metadata>
+  <files>
+      <file src="you" target="content\abyss" />
+  </files>
+</package>
